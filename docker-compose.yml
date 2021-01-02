@@ -29,3 +29,6 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_DATABASE}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - /media/hd2/docker.container/wordpress/mysql:/var/lib/mysql
+      - /media/hd2/docker.container/wordpress/backup:/var/lib/backup
