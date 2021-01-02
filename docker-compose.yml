@@ -14,6 +14,9 @@ services:
       WORDPRESS_DB_USER: ${MYSQL_DATABASE}
       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
       WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+    volumes:
+      - /media/hd2/docker.container/wordpress/html:/var/www/html  
+      - /media/hd2/docker.container/wordpress/wp-content:/var/www/html/wp-content
 
   db:
     image: mysql:5.7
