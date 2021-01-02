@@ -32,3 +32,15 @@ services:
     volumes:
       - /media/hd2/docker.container/wordpress/mysql:/var/lib/mysql
       - /media/hd2/docker.container/wordpress/backup:/var/lib/backup
+  
+  phpmyadmin:
+    image: corbinu/docker-phpmyadmin
+    container_name: wordpress_phpadmin
+    depends_on:
+      - db
+    ports:
+      - ${PHPMYADMIN_PORT}:80
+    restart: always
+    environment:
+      MYSQL_USERNAME: ${MYSQL_USER}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
