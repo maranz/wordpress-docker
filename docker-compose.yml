@@ -43,4 +43,5 @@ services:
     restart: always
     environment:
       MYSQL_USERNAME: ${MYSQL_USER}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_PORT_3306_TCP_ADDR: db
