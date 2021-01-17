@@ -14,9 +14,12 @@ services:
       WORDPRESS_DB_USER: ${MYSQL_USER}
       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
       WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_HOME','https://mrhouse.ddns.net/wordpress');
+        define('WP_SITEURL','https://mrhouse.ddns.net/wordpress');
+        $$_SERVER['REQUEST_URI'] = str_replace("/wp-admin/", "/wordpress/wp-admin/",  $$_SERVER['REQUEST_URI']);
     volumes:
       - /media/hd2/docker.container/wordpress/html:/var/www/html  
-      - /media/hd2/docker.container/wordpress/wp-content:/var/www/html/wp-content
 
   db:
     image: mysql:5.7
